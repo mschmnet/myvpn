@@ -1,0 +1,11 @@
+[Unit]
+Description=Manage my VPN
+ConditionPathExists=|/usr/bin
+After=network.target
+
+[Service]
+User=root
+ExecStart=/bin/bash /opt/myvpn/start-myvpn-from-fifo.sh %i
+Restart=no
+KillSignal=SIGINT
+TimeoutStopSec=10
